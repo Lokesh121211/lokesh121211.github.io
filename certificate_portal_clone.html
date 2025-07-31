@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillVerify Certificate Portal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+    header {
+      background-color: #eeeeee;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+    header a {
+      color: #e53935;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #333;
+    }
+    ol {
+      margin-left: 20px;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #e53935;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .certificate-info {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      display: none;
+      background: #fefefe;
+    }
+    .error-msg {
+      color: red;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><span style="color:#000">Skill</span><span style="color:#e53935">Verify</span></h1>
+    <a href="#">Home</a>
+  </header>
+  <main>
+    <h2>Welcome to SkillVerify Certificate Portal</h2>
+    <ol>
+      <li>Enter your registered email address or certificate ID to search for your details.</li>
+      <li>Click on the certificate button to download your certificate.</li>
+    </ol>
+    <input type="text" id="certInput" placeholder="Please enter your Email Id / Certificate ID">
+    <button onclick="verifyCertificate()">Submit</button>
+    <p class="error-msg" id="error">Invalid Certificate ID. Please try again.</p>
+
+    <div class="certificate-info" id="certificateData">
+      <p><strong>Certificate ID:</strong> SDST-25-2300040353</p>
+      <p><strong>Name:</strong> Yalamanchili Lokesh</p>
+      <p><strong>Email:</strong> 2300040353@kluniversity.in</p>
+      <p><strong>Student ID:</strong> 2300040353</p>
+      <p><strong>College Name:</strong> Koneru Lakshmaiah Education Foundation</p>
+      <p><strong>Branch:</strong> Electronics and Communication Engineering</p>
+      <p><strong>Course Enrolled:</strong> VLSI</p>
+      <p><strong>State:</strong> Andhra Pradesh</p>
+      <p><strong>University:</strong> Other</p>
+      <p><strong>Internship Dates:</strong> May 19, 2025 - June 20, 2025</p>
+      <p><strong>Certificate:</strong> <a href="#" style="color: blue; text-decoration: underline;">Download Certificate</a></p>
+    </div>
+  </main>
+
+  <script>
+    function verifyCertificate() {
+      const input = document.getElementById('certInput').value.trim();
+      const correctID = 'SDST-25-2300040353';
+      const errorMsg = document.getElementById('error');
+      const certData = document.getElementById('certificateData');
+
+      if (input === correctID || input === '2300040353@kluniversity.in') {
+        certData.style.display = 'block';
+        errorMsg.style.display = 'none';
+      } else {
+        errorMsg.style.display = 'block';
+        certData.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
